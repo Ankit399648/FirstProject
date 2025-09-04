@@ -9,26 +9,31 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/SignUp")
-public class SignUp extends HttpServlet {
-
+@WebServlet("/LogIn")
+public class LogIn extends HttpServlet {
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uname=(String)request.getParameter("username");
-		String email=(String)request.getParameter("e-mail");
-		String passw=(String)request.getParameter("password");
-		
+		String uname=request.getParameter("uname");
+		String pass=request.getParameter("password");
 		Authentication auth=new Authentication();
-		if(auth.singup(uname, email, passw)) {
-			response.sendRedirect("login.jsp");
-		}
-		else {
-			PrintWriter out=response.getWriter();
+		PrintWriter out=response.getWriter();
+		if(auth.login(uname, pass)) {
 			out.println("<html>"
 					+ "<head>"
 					+ "<title>Insert title here</title>"
 					+ "</head>"
 					+ "<body>"
-					+ "	<h1>Try Again</h1>"
+					+ "	<h1>Login succesfull</h1>"
+					+ "</body>"
+					+ "</html>");
+		}
+		else {
+			out.println("<html>"
+					+ "<head>"
+					+ "<title>Insert title here</title>"
+					+ "</head>"
+					+ "<body>"
+					+ "	<h1>Login failed</h1>"
 					+ "</body>"
 					+ "</html>");
 		}

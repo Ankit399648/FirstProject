@@ -121,13 +121,13 @@ body {
       <h2 id="form-title">Login</h2>
       
       <!-- Login Form -->
-      <form id="login-form" class="form active" method="post" action="">
+      <form id="login-form" class="form active" method="post" action="LogIn">
         <div class="input-box">
-          <input type="email" required>
-          <label>Email</label>
+          <input type="text" name="uname" required>
+          <label>Username</label>
         </div>
         <div class="input-box">
-          <input type="password" required>
+          <input type="password" name="password" required>
           <label>Password</label>
         </div>
         <button type="submit" class="btn">Login</button>
@@ -137,15 +137,15 @@ body {
       <!-- Signup Form -->
       <form id="signup-form" class="form" method="post" action="SignUp">
         <div class="input-box">
-          <input type="text" required>
+          <input type="text" name="username" required>
           <label>Username</label>
         </div>
         <div class="input-box">
-          <input type="email" required>
+          <input type="email" name="e-mail" required>
           <label>Email</label>
         </div>
         <div class="input-box">
-          <input type="password" required>
+          <input type="password" name="password" required>
           <label>Password</label>
         </div>
         <button type="submit" class="btn">Sign up</button>
